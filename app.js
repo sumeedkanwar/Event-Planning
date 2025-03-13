@@ -15,9 +15,9 @@ mongoose.connect("mongodb://localhost:27017/event-planner", {
   useUnifiedTopology: true,
 });
 
-app.use("/api/events", eventRoutes);
-app.use("/api/reminders", reminderRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/events", eventRoutes);
+app.use("/reminders", reminderRoutes);
+app.use("/auth", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
