@@ -1,0 +1,24 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const eventRoutes = require("./routes/event");
+const reminderRoutes = require("./routes/reminder");
+const authRoutes = require("./middleware/auth");
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(bodyParser.json());
+
+mongoose.connect("mongodb://localhost:27017/event-planner", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+app.use("/api/events", eventRoutes);
+app.use("/api/reminders", reminderRoutes);
+app.use("/api/auth", authRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
