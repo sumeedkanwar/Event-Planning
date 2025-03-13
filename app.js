@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/event-planner", {
+mongoose.connect("mongodb://localhost:27017/event-planning", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
